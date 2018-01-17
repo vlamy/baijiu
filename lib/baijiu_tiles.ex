@@ -1,18 +1,24 @@
-defmodule BaijiuTiles do
-  @moduledoc """
-  Documentation for BaijiuTiles.
-  """
+defmodule BaijiuTiles.Router.Homepage do
+  use Maru.Router
 
-  @doc """
-  Hello world.
+  get do
+    json(conn, %{ hello: :world })
+  end
+end
 
-  ## Examples
+defmodule BaijiuTiles.API do
+  use Maru.Router
 
-      iex> BaijiuTiles.hello
-      :world
+  plug Plug.Parsers,
+  pass: ["*/*"],
+  json_decoder: Poison,
+  parsers: [:urlencoded, :json, :multipart]
 
-  """
-  def hello do
-    :world
+  mount BaijiuTiles.Router.Homepage
+
+  rescue_from :all do
+    conn
+    |> put_status(500)
+    |> text("Server Error")
   end
 end
