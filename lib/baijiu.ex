@@ -1,4 +1,4 @@
-defmodule BaijiuTiles.Router.Homepage do
+defmodule Baijiu.Router.Homepage do
   use Maru.Router
 
   get do
@@ -6,15 +6,15 @@ defmodule BaijiuTiles.Router.Homepage do
   end
 end
 
-defmodule BaijiuTiles.API do
+defmodule Baijiu.API do
   use Maru.Router
 
   plug Plug.Parsers,
-  pass: ["*/*"],
-  json_decoder: Poison,
-  parsers: [:urlencoded, :json, :multipart]
+    pass: ["*/*"],
+    json_decoder: Poison,
+    parsers: [:urlencoded, :json, :multipart]
 
-  mount BaijiuTiles.Router.Homepage
+  mount Baijiu.Router.Homepage
 
   rescue_from :all do
     conn

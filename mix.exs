@@ -1,9 +1,9 @@
-defmodule BaijiuTiles.Mixfile do
+defmodule Baijiu.Mixfile do
   use Mix.Project
 
   def project do
     [
-      app: :baijiu_tiles,
+      app: :baijiu,
       version: "0.1.0",
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,

@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure your application as:
 #
-#     config :baijiu_tiles, key: :value
+#     config :baijiu, key: :value
 #
 # and access this configuration in your application as:
 #
-#     Application.get_env(:baijiu_tiles, :key)
+#     Application.get_env(:baijiu, :key)
 #
 # You can also configure a 3rd-party app:
 #
@@ -30,5 +30,5 @@ use Mix.Config
 #     import_config "#{Mix.env}.exs"
 #
 #
-  config :maru, BaijiuTiles.API,
+  config :maru, Baijiu.API,
     http: [port: 8880]
