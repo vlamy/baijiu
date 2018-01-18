@@ -22,7 +22,9 @@ defmodule Baijiu.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:credo, "~> 0.3", only: [:dev, :test]},
       {:coverex, "~> 1.4.10", only: :test},
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
       {:maru, "~> 0.11"}
     ]
   end
