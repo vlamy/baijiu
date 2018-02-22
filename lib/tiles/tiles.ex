@@ -1,6 +1,7 @@
 defmodule Baijiu.Tiles do
   alias Baijiu.Tiles.Family, as: Family
   alias Baijiu.Tiles.Tile, as: Tile
+  alias Baijiu.Utils, as: Utils
 
   @moduledoc """
   Main Baijiu Tiles module, where all MAhjong tiles and families are defined
@@ -63,7 +64,6 @@ defmodule Baijiu.Tiles do
     :west_wind => %Tile{name: "West wind", family: @families.wind, number: 3},
   }
 
-
   @all_tiles_map @bamboo_tiles |> Map.merge(@character_tiles)
     |> Map.merge(@circle_tiles)
     |> Map.merge(@dragon_tiles)
@@ -78,8 +78,7 @@ defmodule Baijiu.Tiles do
   def number_of_tiles, do: @number_of_different_tiles
 
   def get_random_tile do
-    # elem(@all_tiles_tuple, Baijiu.Utils.random(@number_of_different_tiles))
-    elem(all_tiles_tuple(), Baijiu.Utils.random(number_of_tiles()))
+    elem(all_tiles_tuple(), Utils.random(number_of_tiles()))
   end
 
   def random_tiles_tuple(list_size) when list_size == 0, do: {}

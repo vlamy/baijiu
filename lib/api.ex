@@ -1,5 +1,6 @@
 defmodule Baijiu.API do
   use Maru.Router
+  alias Baijiu.Tiles, as: Tiles
 
   @moduledoc """
   Root (maru propulsed) REST API module for Baijiu
@@ -11,7 +12,7 @@ defmodule Baijiu.API do
     parsers: [:urlencoded, :json, :multipart]
 
   get do
-    json(conn, Baijiu.Tiles.get_random_tile)
+    json(conn, Tiles.get_random_tile)
   end
 
   rescue_from :all do

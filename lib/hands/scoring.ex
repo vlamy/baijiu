@@ -1,5 +1,9 @@
 defmodule Baijiu.Hands.Validator do
 
+  @moduledoc"""
+  Methods that validate scoring (WIP)
+  """
+
   def hand_of_14?(hand), do: Enum.count(hand) == 14
 
   """
