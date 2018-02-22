@@ -69,7 +69,7 @@ defmodule Baijiu.Tiles do
     |> Map.merge(@dragon_tiles)
     |> Map.merge(@wind_tiles)
 
-  @all_tiles_tuple @all_tiles_map |> Map.to_list |> List.to_tuple
+  @all_tiles_tuple @all_tiles_map |> Map.values |> List.to_tuple
 
   @number_of_different_tiles tuple_size(@all_tiles_tuple)
 
@@ -88,5 +88,5 @@ defmodule Baijiu.Tiles do
     Tuple.append(random_tiles_tuple(list_size - 1), get_random_tile())
   end
 
-  def full_random_hand, do: random_tiles_tuple(14)
+  def full_random_hand, do: Tuple.to_list(random_tiles_tuple(14))
 end

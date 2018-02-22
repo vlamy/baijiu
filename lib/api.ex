@@ -11,7 +11,7 @@ defmodule Baijiu.API do
     parsers: [:urlencoded, :json, :multipart]
 
   get do
-    json(conn, %{hello: :world})
+    json(conn, Baijiu.Tiles.get_random_tile)
   end
 
   rescue_from :all do
