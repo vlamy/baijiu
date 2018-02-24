@@ -3,5 +3,5 @@ defmodule Baijiu.Tiles.Tile do
   Baijiu tile structure
   """
 
-  defstruct [:name, :family, :number]
+  defstruct [:id, :name, :family, :number]
 end

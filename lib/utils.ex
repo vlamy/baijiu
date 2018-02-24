@@ -11,7 +11,8 @@ defmodule Baijiu.Utils do
 
   """
   def random(size \\ @default_random_size) do
-    <<i1 :: unsigned-integer-32, i2 :: unsigned-integer-32,
+    <<i1 :: unsigned-integer-32,
+      i2 :: unsigned-integer-32,
       i3 :: unsigned-integer-32>> = :crypto.strong_rand_bytes(12)
     :rand.seed(:exsplus, {i1, i2, i3})
     :rand.uniform(size) # generate random number from 0 - size

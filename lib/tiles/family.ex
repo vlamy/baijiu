@@ -3,5 +3,5 @@ defmodule Baijiu.Tiles.Family do
   Baijiu tiles family structure
   """
 
-  defstruct [:name, :honor, :size]
+  defstruct [:id, :name, :honor, :size]
 end
