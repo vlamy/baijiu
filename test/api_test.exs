@@ -5,7 +5,12 @@ defmodule BaijiuTest.API do
   doctest Baijiu.API
 
   test "/" do
-    %{"number" => number, "name" => name, "family" => family} = get("/") |> json_response
+    %{"id" => id,
+      "number" => number,
+      "name" => name,
+      "family" => family} = get("/") |> json_response
+
+    refute id == nil
     assert 0 < number
     refute name == ''
     refute family == nil
