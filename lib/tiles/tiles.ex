@@ -8,71 +8,96 @@ defmodule Baijiu.Tiles do
   alias Baijiu.Utils, as: Utils
 
   @families [
-    %Family{id: :bamboo, name: "Bamboo", honor: False, size: 9},
-    %Family{id: :character, name: "Character", honor: False, size: 9},
-    %Family{id: :circle, name: "Circle", honor: False, size: 9},
-    %Family{id: :dragon, name: "Dragon", honor: True, size: 3},
-    %Family{id: :wind, name: "Wind", honor: True, size: 4}
+    %Family{id: :bamboo, name: "Bamboo", honor: false, size: 9},
+    %Family{id: :character, name: "Character", honor: false, size: 9},
+    %Family{id: :circle, name: "Circle", honor: false, size: 9},
+    %Family{id: :dragon, name: "Dragon", honor: true, size: 3},
+    %Family{id: :wind, name: "Wind", honor: true, size: 4}
   ]
 
   @families_map Map.new(@families, fn family -> {family.id, family} end)
 
   @bamboo_tiles [
-    %Tile{id: :bamboo_1, name: "One of Bamboo", family: @families_map.bamboo, number: 1},
-    %Tile{id: :bamboo_2, name: "Two of Bamboo", family: @families_map.bamboo, number: 2},
-    %Tile{id: :bamboo_3, name: "Three of Bamboo", family: @families_map.bamboo, number: 3},
-    %Tile{id: :bamboo_5, name: "Four of Bamboo", family: @families_map.bamboo, number: 4},
-    %Tile{id: :bamboo_5, name: "Five of Bamboo", family: @families_map.bamboo, number: 5},
-    %Tile{id: :bamboo_6, name: "Six of Bamboo", family: @families_map.bamboo, number: 6},
-    %Tile{id: :bamboo_7, name: "Seven of Bamboo", family: @families_map.bamboo, number: 7},
-    %Tile{id: :bamboo_8, name: "Eight of Bamboo", family: @families_map.bamboo, number: 8},
-    %Tile{id: :bamboo_9, name: "Nine of Bamboo", family: @families_map.bamboo, number: 9}
+    %Tile{id: :bamboo_1, name: "One of Bamboo",
+      family: @families_map.bamboo.id, number: 1},
+    %Tile{id: :bamboo_2, name: "Two of Bamboo",
+      family: @families_map.bamboo.id, number: 2},
+    %Tile{id: :bamboo_3, name: "Three of Bamboo",
+      family: @families_map.bamboo.id, number: 3},
+    %Tile{id: :bamboo_5, name: "Four of Bamboo",
+      family: @families_map.bamboo.id, number: 4},
+    %Tile{id: :bamboo_5, name: "Five of Bamboo",
+      family: @families_map.bamboo.id, number: 5},
+    %Tile{id: :bamboo_6, name: "Six of Bamboo",
+      family: @families_map.bamboo.id, number: 6},
+    %Tile{id: :bamboo_7, name: "Seven of Bamboo",
+      family: @families_map.bamboo.id, number: 7},
+    %Tile{id: :bamboo_8, name: "Eight of Bamboo",
+      family: @families_map.bamboo.id, number: 8},
+    %Tile{id: :bamboo_9, name: "Nine of Bamboo",
+      family: @families_map.bamboo.id, number: 9}
   ]
 
   @character_tiles [
     %Tile{id: :character_1, name: "One of Character",
-      family: @families_map.character, number: 1},
+      family: @families_map.character.id, number: 1},
     %Tile{id: :character_2, name: "Two of Character",
-      family: @families_map.character, number: 2},
+      family: @families_map.character.id, number: 2},
     %Tile{id: :character_3, name: "Three of Character",
-      family: @families_map.character, number: 3},
+      family: @families_map.character.id, number: 3},
     %Tile{id: :character_4, name: "Four of Character",
-      family: @families_map.character, number: 4},
+      family: @families_map.character.id, number: 4},
     %Tile{id: :character_5, name: "Five of Character",
-      family: @families_map.character, number: 5},
+      family: @families_map.character.id, number: 5},
     %Tile{id: :character_6, name: "Six of Character",
-      family: @families_map.character, number: 6},
+      family: @families_map.character.id, number: 6},
     %Tile{id: :character_7, name: "Seven of Character",
-      family: @families_map.character, number: 7},
+      family: @families_map.character.id, number: 7},
     %Tile{id: :character_8, name: "Eight of Character",
-      family: @families_map.character, number: 8},
+      family: @families_map.character.id, number: 8},
     %Tile{id: :character_9, name: "Nine of Character",
-      family: @families_map.character, number: 9},
+      family: @families_map.character.id, number: 9},
   ]
 
   @circle_tiles [
-    %Tile{id: :circle_1, name: "One of Circle", family: @families_map.circle, number: 1},
-    %Tile{id: :circle_2, name: "Two of Circle", family: @families_map.circle, number: 2},
-    %Tile{id: :circle_3, name: "Three of Circle", family: @families_map.circle, number: 3},
-    %Tile{id: :circle_4, name: "Four of Circle", family: @families_map.circle, number: 4},
-    %Tile{id: :circle_5, name: "Five of Circle", family: @families_map.circle, number: 5},
-    %Tile{id: :circle_6, name: "Six of Circle", family: @families_map.circle, number: 6},
-    %Tile{id: :circle_7, name: "Seven of Circle", family: @families_map.circle, number: 7},
-    %Tile{id: :circle_8, name: "Eight of Circle", family: @families_map.circle, number: 8},
-    %Tile{id: :circle_9, name: "Nine of Circle", family: @families_map.circle, number: 9},
+    %Tile{id: :circle_1, name: "One of Circle",
+      family: @families_map.circle.id, number: 1},
+    %Tile{id: :circle_2, name: "Two of Circle",
+      family: @families_map.circle.id, number: 2},
+    %Tile{id: :circle_3, name: "Three of Circle",
+      family: @families_map.circle.id, number: 3},
+    %Tile{id: :circle_4, name: "Four of Circle",
+      family: @families_map.circle.id, number: 4},
+    %Tile{id: :circle_5, name: "Five of Circle",
+      family: @families_map.circle.id, number: 5},
+    %Tile{id: :circle_6, name: "Six of Circle",
+      family: @families_map.circle.id, number: 6},
+    %Tile{id: :circle_7, name: "Seven of Circle",
+      family: @families_map.circle.id, number: 7},
+    %Tile{id: :circle_8, name: "Eight of Circle",
+      family: @families_map.circle.id, number: 8},
+    %Tile{id: :circle_9, name: "Nine of Circle",
+      family: @families_map.circle.id, number: 9},
   ]
 
   @dragon_tiles [
-    %Tile{id: :green_dragon, name: "Green dragon", family: @families_map.dragon, number: 1},
-    %Tile{id: :red_dragon, name: "Red dragon", family: @families_map.dragon, number: 2},
-    %Tile{id: :white_dragon, name: "White dragon", family: @families_map.dragon, number: 3},
+    %Tile{id: :green_dragon, name: "Green dragon",
+      family: @families_map.dragon.id, number: 1},
+    %Tile{id: :red_dragon, name: "Red dragon",
+      family: @families_map.dragon.id, number: 2},
+    %Tile{id: :white_dragon, name: "White dragon",
+      family: @families_map.dragon.id, number: 3},
   ]
 
   @wind_tiles [
-    %Tile{id: :east_wind, name: "East wind", family: @families_map.wind, number: 1},
-    %Tile{id: :north_wind, name: "North wind", family: @families_map.wind, number: 4},
-    %Tile{id: :south_wind, name: "South wind", family: @families_map.wind, number: 2},
-    %Tile{id: :west_wind, name: "West wind", family: @families_map.wind, number: 3},
+    %Tile{id: :east_wind, name: "East wind",
+      family: @families_map.wind.id, number: 1},
+    %Tile{id: :north_wind, name: "North wind",
+      family: @families_map.wind.id, number: 4},
+    %Tile{id: :south_wind, name: "South wind",
+      family: @families_map.wind, number: 2},
+    %Tile{id: :west_wind, name: "West wind",
+      family: @families_map.wind.id, number: 3},
   ]
 
   @all_honors @dragon_tiles ++ @wind_tiles
