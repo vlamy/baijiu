@@ -4,31 +4,41 @@ defmodule BaijiuTest.Router.Tiles do
 
   doctest Baijiu.Router.Tiles
 
-  test "/tiles/random" do
-    %{"id" => id,
-      "number" => number,
-      "name" => name,
-      "family" => family} = get("/tiles/random") |> json_response
-
+  def assertTileId(%{"id" => id}) do
     refute id == nil
+  end
+
+  def assertTileNumber(%{"number" => number}) do
     assert 0 < number
+    assert 15 > number
+  end
+
+  def assertTileName(%{"name" => name}) do
     refute name == ''
-    refute family == nil
+    refute name == nil
+  end
+
+  def assertTileFamily(%{"family" => family}) do
+    assert Enum.any?(
+      ["bamboo", "character", "circle", "dragon", "wind"],
+      fn f -> f == family end
+    )
+  end
+
+  def assertTile(tile) do
+    assertTileId(tile)
+    assertTileNumber(tile)
+    assertTileName(tile)
+    assertTileFamily(tile)
+  end
+
+  test "/tiles/random" do
+    get("/tiles/random") |> json_response |> assertTile
   end
 
   test "/tiles/fullhand" do
     fullhand = get("/tiles/fullhand") |> json_response
     assert Enum.count(fullhand) == 14
-
-
-    %{"id" => id,
-      "number" => number,
-      "name" => name,
-      "family" => family} = List.first(fullhand)
-
-    refute id == nil
-    assert 0 < number
-    refute name == ''
-    refute family == nil
+    assertTile(List.first(fullhand))
   end
 end
