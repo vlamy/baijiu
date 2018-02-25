@@ -11,8 +11,11 @@ defmodule Baijiu.API do
     json_decoder: Poison,
     parsers: [:urlencoded, :json, :multipart]
 
+    #TODO: add a logger
+  mount Baijiu.Router.Tiles
+
   get do
-    json(conn, Tiles.get_random_tile)
+    json(conn, %{status: "ok"})
   end
 
   rescue_from :all do

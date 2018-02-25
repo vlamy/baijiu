@@ -95,7 +95,7 @@ defmodule Baijiu.Tiles do
     %Tile{id: :north_wind, name: "North wind",
       family: @families_map.wind.id, number: 4},
     %Tile{id: :south_wind, name: "South wind",
-      family: @families_map.wind, number: 2},
+      family: @families_map.wind.id, number: 2},
     %Tile{id: :west_wind, name: "West wind",
       family: @families_map.wind.id, number: 3},
   ]
