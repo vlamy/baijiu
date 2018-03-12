@@ -112,14 +112,19 @@ defmodule Baijiu.Tiles do
   def number_of_tiles, do: @number_of_different_tiles
 
   def get_random_tile do
-    elem(all_tiles_tuple(), Utils.random(number_of_tiles()))
+    elem(all_tiles_tuple, Utils.random(number_of_tiles - 1))
   end
 
   def random_tiles_tuple(list_size) when list_size == 0, do: {}
-
   def random_tiles_tuple(list_size) when list_size > 0 do
     Tuple.append(random_tiles_tuple(list_size - 1), get_random_tile())
   end
 
   def full_random_hand, do: Tuple.to_list(random_tiles_tuple(14))
+
+  def tile_from_id(id), do: Map.fetch!(@all_tiles_map, id)
+  # def hand_from_id(id_list) do
+  #   id_list
+  #   |> Enum.map(fn e -> Map.fetch(@all_tiles_map, e) end)
+  # end
 end

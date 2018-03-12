@@ -14,4 +14,13 @@ defmodule Baijiu.Router.Tiles do
   get "tiles/fullhand" do
     json(conn, Tiles.full_random_hand)
   end
+
+  namespace :tiles do
+    route_param :id, type: String do
+      desc "Returns a tile from its id"
+      get do
+        json(conn, Tiles.tile_from_id(String.to_atom(params[:id])))
+      end
+    end
+  end
 end
