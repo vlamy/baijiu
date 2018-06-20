@@ -6,9 +6,13 @@ defmodule Baijiu.API do
   Root (maru propulsed) REST API module for Baijiu
   """
 
+  before do
+    plug Plug.Logger
+  end
+
   plug Plug.Parsers,
     pass: ["*/*"],
-    json_decoder: Poison,
+    json_decoder: Jason,
     parsers: [:urlencoded, :json, :multipart]
 
     #TODO: add a logger
@@ -18,9 +22,26 @@ defmodule Baijiu.API do
     json(conn, %{status: "ok"})
   end
 
-  rescue_from :all do
+  rescue_from Unauthorized, as: e do
+    IO.inspect e
+
+    conn
+    |> put_status(401)
+    |> text("Unauthorized")
+  end
+
+  rescue_from [MatchError, RuntimeError], with: :custom_error
+
+  rescue_from :all, as: e do
+    IO.inspect e
+    conn
+    |> put_status(Plug.Exception.status(e))
+    |> text("Server Error")
+  end
+
+  defp custom_error(conn, exception) do
     conn
     |> put_status(500)
-    |> text("Server Error")
+    |> text(exception.message)
   end
 end

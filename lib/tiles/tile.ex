@@ -3,5 +3,6 @@ defmodule Baijiu.Tiles.Tile do
   Baijiu tile structure
   """
 
+  @derive Jason.Encoder
   defstruct [:id, :name, :family, :number]
 end
